@@ -1,0 +1,36 @@
+<div class="navbar bg-secondary text-base-100">
+  <div class="flex-1">
+    <img class="imagenNavbar" src="../../../assets/imagenes/logo.png" />
+    <a class="btn btn-ghost normal-case text-xl">Medical Assistance</a>
+    <div class="navbar-center centerMenu hidden lg:flex">
+      <ul class="menu menu-horizontal px-1  font-sans font-semibold">
+        <li><a (click)="navigateToPage('Inicio/citasMedicas')"
+          >Citas Medicas</a></li>
+        <li>
+          <a (click)="navigateToPage('Inicio/actividadesMedicas')"
+                  >Actividades</a
+                >
+        </li>
+        <li><a (click)="navigateToPage('Inicio/historialMedico')"
+          >Historial Medico</a
+        ></li>
+        <li><a (click)="navigateToPage('Inicio/doctores')">Doctores</a></li>
+        <li><a (click)="navigateToPage('Inicio/alergias')"
+          >Alergias</a
+        ></li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex-none" *ngIf="usuarioLogueado">
+    <ul class="menu menu-horizontal px-1  font-sans ">
+      <li>
+        <details>
+          <summary>{{ usuarioLogueado.nombre }}</summary>
+          <ul class="p-2 bg-neutral text-primary">
+            <li><a *ngIf="servicioBackend.isLoggedIna()" (click)="logout()">Cerrar Sesion</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
+</div>

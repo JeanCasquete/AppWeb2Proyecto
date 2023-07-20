@@ -1,0 +1,111 @@
+<main style="display: flex; flex-direction: column; justify-content: center;">
+   
+    <div style="display: flex; width: 100%; justify-content: center;">
+        <h1 style="font-size: 2rem;  font-weight: bold; margin-top: 30px;">Alergías</h1>
+    </div>
+        
+    <div>
+
+      <app-modal 
+      [labelText]="'AGREGAR'" 
+      [numberModal]="'lol'"
+    >
+      <h1 style="font-size: 2rem ;font-weight: bold;">Crea una Alergía</h1>
+      <br>
+      <form (ngSubmit)="AgregarDatos()"  [formGroup]="alergiaForm">
+
+        <input type="text" placeholder="Nombre"  class="input input-bordered w-full max-w-xl"
+        formControlName="nombre"
+        >
+
+        <br>
+        <br>
+
+
+        <input type="text" placeholder="Tratamiento"  class="input input-bordered w-full max-w-xl"
+        formControlName="tratamiento"
+        >
+
+        <br>
+        <br>
+
+        <button class="btn btn-primary" type="submit">Envíar</button>
+
+      </form>
+
+    </app-modal>
+
+    </div>
+<br>
+<br>
+<div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+
+  <div 
+  style="width: 60%; display: flex; justify-content: space-between;
+  align-items: center; border: 2px solid rgb(236, 236, 236); border-radius: 10px;
+  margin-bottom: 20px;
+  " 
+*ngFor="let alergias of datos"
+  
+  >
+    <div >
+      <h1 style="font-size: 2rem;  font-weight: bold;">{{alergias.nombre}}</h1>
+      <p>Tratamiento: {{alergias.tratamiento}}</p>
+
+    </div>
+    <div>
+
+      <label for="my_modal_{{alergias.id}}" class="btn btn-warning" (click)="ObtenerDatosE(alergias)">EDITAR</label>
+
+      <input type="checkbox" id="my_modal_{{alergias.id}}" class="modal-toggle" />
+
+
+      <div class="modal">
+          <div class="modal-box">
+            <form (ngSubmit)="UpdateDatos()"  [formGroup]="UpdatealergiaForm">
+
+              <h1 style="font-size: 2rem ;font-weight: bold;">Editar Alergía</h1>
+
+              <input type="text" placeholder="Nombre"  class="input input-bordered w-full max-w-xl"
+              formControlName="nombre"  [value]="alergiaSeleccionado?.nombre" 
+              >
+      
+              <br>
+              <br>
+      
+      
+              <input type="text" placeholder="Tratamiento"  class="input input-bordered w-full max-w-xl"
+              formControlName="tratamiento"  [value]="alergiaSeleccionado?.tratamiento" 
+              >
+      
+              <br>
+              <br>
+      
+              <button class="btn btn-primary" type="submit">Envíar</button>
+      
+            </form>
+            
+          </div>
+          <label class="modal-backdrop" for="my_modal_{{alergias.id}}">Close</label>
+      </div>
+
+
+
+       <label for="my_modal_{{alergias.id}}" style="margin-left:10px;" class="btn btn-error">ELIMINAR</label >
+
+      <input type="checkbox" id="my_modal_{{alergias.id}}" class="modal-toggle" />
+
+
+      <div class="modal">
+          <div class="modal-box">
+              <ng-content></ng-content>
+          </div>
+          <label class="modal-backdrop" for="my_modal_{{alergias.id}}">Close</label>
+      </div>
+    </div>
+  </div>
+
+</div>
+     
+      
+    </main>

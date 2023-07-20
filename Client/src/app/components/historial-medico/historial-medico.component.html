@@ -1,0 +1,104 @@
+<main>
+   
+<div style="display: flex; width: 100%; justify-content: center;">
+    <h1 style="font-size: 2rem;  font-weight: bold; margin-top: 30px;">Historial Medico</h1>
+</div>
+    
+<div *ngFor="let historial of datos">
+
+  <div class="overflow-x-auto">
+    <table class="table" >
+    
+      <thead>
+      
+      </thead>
+      <tbody>
+        <tr >
+          <th style="position: relative; left: 650px;">PACIENTE</th>
+      
+         </tr>
+        <tr>
+          <th style="position: relative; left: 650px;">{{historial.nombre}} 
+            
+            {{historial.apellido}}</th>
+         
+        </tr>
+
+        <tr>
+          <th style="position: relative; left: 650px;">{{historial.cedula}} 
+            
+         </th>
+        </tr>
+
+        <tr>
+          <th style="position: relative; left: 630px;">{{historial.correo}} 
+            
+         </th>
+        </tr>
+        <tr>
+          <th style="position: relative; left: 630px;">Doctores
+            
+         </th>
+        </tr>
+
+
+        <tr style="text-align: center;">
+          <th *ngFor="let nombreDoctor of historial.nombre_doctores">
+            {{ nombreDoctor }}
+          </th>
+        </tr>
+        <tr style="text-align: center;">
+          <th *ngFor="let especializaciones_doctores of historial.especializaciones_doctores">
+            {{ especializaciones_doctores }}
+          </th>
+        </tr>
+        <tr style="text-align: center;">
+          <th *ngFor="let telefono_doctores of historial.telefono_doctores">
+            {{ telefono_doctores }}
+          </th>
+        </tr>
+        <tr>
+          <th style="position: relative; left: 630px;">Diagnostico
+            
+         </th>
+        </tr>
+        <tr style="text-align: center;">
+          <th *ngFor="let casos_paciente of historial.casos_paciente">
+            {{ casos_paciente }}
+          </th>
+        </tr>
+        <tr style="text-align: center;">
+          <th *ngFor="let medicina_mandada of historial.medicina_mandada">
+            {{ medicina_mandada }}
+          </th>
+        </tr>
+        <tr style="text-align: center;">
+          <th *ngFor="let detalles_consulta of historial.detalles_consulta">
+            {{ detalles_consulta }}
+          </th>
+        </tr>
+        <tr>
+          <th style="position: relative; left: 630px;">Alergías
+            
+         </th>
+        </tr>
+        <tr style="text-align: center;">
+          <th *ngFor="let nombre_alergias of historial.nombre_alergias">
+            {{ nombre_alergias }}
+          </th>
+        </tr>  
+        <tr style="text-align: center;">
+          <th *ngFor="let tratamiento_alergias of historial.tratamiento_alergias">
+            {{ tratamiento_alergias }}
+          </th>
+        </tr>
+        <!-- row 2 -->
+      
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+ 
+</main>

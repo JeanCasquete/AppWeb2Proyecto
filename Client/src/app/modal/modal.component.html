@@ -1,0 +1,20 @@
+
+<div style="display: flex; margin-left: 20px; width: 10%; justify-content: center; 
+align-items: center; 
+
+" >
+
+
+<img src= "../../../assets/imagenes/boton-agregar.png" alt="+" style="margin-right: 10px;">
+<label for="my_modal_{{numberModal}}" class="">{{ labelText }}</label>
+
+<input type="checkbox" id="my_modal_{{numberModal}}" class="modal-toggle" />
+
+
+<div class="modal">
+    <div class="modal-box">
+        <ng-content></ng-content>
+    </div>
+    <label class="modal-backdrop" for="my_modal_{{numberModal}}">Close</label>
+</div>
+</div>

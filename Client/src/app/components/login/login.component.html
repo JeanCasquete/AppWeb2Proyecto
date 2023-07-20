@@ -1,0 +1,136 @@
+<main>
+  <div class="hero min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div class="card-body">
+          <form (ngSubmit)="login()">
+            <div class="form-control">
+              <div class="text-center lg:text-left">
+                <h1 class="text-3xl text-center font-bold">
+                  Medical Assistance
+                </h1>
+                <img
+                  class="imagenLogin"
+                  src="../../../assets/imagenes/logo.png"
+                />
+              </div>
+              <label class="label">
+                <span class="label-text font-sans font-semibold">Email</span>
+              </label>
+              <input
+                type="text"
+                placeholder="email"
+                class="input input-bordered font-sans"
+                name="correo"
+                [(ngModel)]="usuario.correo"
+              />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-sans font-semibold">Password</span>
+              </label>
+              <input
+                type="text"
+                placeholder="password"
+                class="input input-bordered font-sans"
+                name="contrasena"
+                [(ngModel)]="usuario.contrasena"
+              />
+              <div class="form-control mt-6">
+                <button type="submit" class="btn btn-primary font-sans font-semibold">
+                  Login
+                </button>
+              </div>
+            </div>
+          </form>
+          <label for="my_modal_6" class="btn bg-secondary">Registrase</label>
+          <input type="checkbox" id="my_modal_6" class="modal-toggle" />
+          <div class="modal">
+            <div class="modal-box">
+              <form method="POST" (ngSubmit)=" RegistrarUsuario()">
+                <div class="text-center">
+                  <a class="text-3xl text-center font-bold"
+                    >Registro de Usuario</a
+                  >
+                </div>
+                <p class="py-4 font-sans font-semibold">Nombres:</p>
+                <input
+                  type="text"
+                  placeholder="Ingrese sus Nombres"
+                  class="input input-bordered input-primary w-full max-w-lg"
+                  [(ngModel)]="usuario.nombre"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+                <p class="py-4 font-sans font-semibold">Apellidos:</p>
+                <input
+                  type="text"
+                  placeholder="Ingrese sus Apellidos"
+                  class="input input-bordered input-primary w-full max-w-lg"
+                  [(ngModel)]="usuario.apellido"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+                <p class="py-4 font-sans font-semibold">Numero Cedula:</p>
+                <input
+                  type="number"
+                  placeholder="Ingrese su numero de Cedula"
+                  class="input input-bordered input-primary w-full max-w-lg"
+                  [(ngModel)]="usuario.cedula"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+                <p class="py-4 font-sans font-semibold">Correo:</p>
+                <input
+                  type="email"
+                  placeholder="Ingrese su Correo Electronico"
+                  class="input input-bordered input-primary w-full max-w-lg"
+                  [(ngModel)]="usuario.correo"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+                <p class="py-4 font-sans font-semibold">Contraseña:</p>
+                <input
+                  type="password"
+                  placeholder="Ingrese su Contraseña"
+                  class="input input-bordered input-primary w-full max-w-lg"
+                  [(ngModel)]="usuario.contrasena"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+                <p class="py-4 font-sans font-semibold">Genero:</p>
+                <select
+                  [(ngModel)]="usuario.genero"
+                  [ngModelOptions]="{ standalone: true }"
+                  class="select w-full max-w-lg font-sans"
+                >
+                  <option disabled selected>Seleccione un Genero</option>
+                  <option value="hombre">Hombre</option>
+                  <option value="mujer">Mujer</option>
+                  <option value="no_definido">No definido</option>
+                </select>
+                <p class="py-4 font-sans font-semibold">Condicion:</p>
+                <select
+                  [(ngModel)]="usuario.estado"
+                  [ngModelOptions]="{ standalone: true }"
+                  class="select w-full max-w-lg font-sans"
+                >
+                  <option disabled selected>Seleccione su Condicion</option>
+                  <option value="discapacitado">Discapacitado</option>
+                </select>
+                <div class="modal-action centroBotones">
+                  <label for="my_modal_6" class="btn font-sans font-semibold"
+                    >Cerrar</label
+                  >
+
+                  <button
+                    type="submit"
+                    class="btn bg-primary font-sans font-semibold"
+                  >
+                    Registrase
+                  </button>
+                </div>
+              </form>
+            </div>
+            <label class="modal-backdrop" for="my_modal_6">Close</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
